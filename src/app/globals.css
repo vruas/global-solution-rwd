@@ -2,3 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 200%;
+  }
+
+  body {
+    background-color: rgb(214, 208, 208);
+  }
+}
+
+@layer components {
+  .link-cabecalho {
+    @apply text-red-500 flex justify-end mx-8 p-2 transition-all duration-500 ease-out hover:bg-red-500 hover:text-white rounded font-bold uppercase;
+  }
+}
