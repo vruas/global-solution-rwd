@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Rodape() {
   return (
-    <footer className="bg-gray-600 text-black font-bold py-3 absolute w-full bottom-0">
+    <footer className="bg-gray-600 text-black font-bold py-3 flex flex-col w-full bottom-0">
       <div>// Imagem rodape</div>
       <nav className="mb-4">
         <div>
@@ -18,7 +18,7 @@ export default function Rodape() {
               <Link href="/parceiros">Hapvida</Link>
             </li>
             <li>
-              <Link href="/ia-saude"></Link>IA na saúde
+              <Link href="/ia-saude"></Link>Ver Agendamentos
             </li>
           </ul>
         </div>
