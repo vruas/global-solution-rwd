@@ -22,7 +22,7 @@ export default function FormConsulta() {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
-        const resposta = await fetch("", {
+        const resposta = await fetch("http://localhost:8080/globalsolution/paciente", {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -46,75 +46,72 @@ export default function FormConsulta() {
               Agende sua consulta aqui
             </legend>
 
-            <label className="mb-2" htmlFor="">
+            <label className="mb-2" htmlFor="nome">
               Nome:
             </label>
             <input className="p-2 my-4 border rounded-md w-full"
              type="text"
              placeholder="Nome do Paciente"
              required
+             name="nome"
              value={form.nome}
              onChange={handleChange} />
 
-            <label className="mb-2" htmlFor="">
-              Sobrenome do Paciente:
-            </label>
-            <input className="p-2 my-4 border rounded-md w-full" 
-            type="text"
-            placeholder="Sobrenome do Paciente"
-            required
-            value={form.sobrenome}
-            onChange={handleChange} />
 
-            <label className="mb-2" htmlFor="">
+            <label className="mb-2" htmlFor="dataNascimento">
               Data de Nascimento:
             </label>
             <input className="p-2 my-4 border rounded-md w-full" 
             type="date"
             placeholder="Data de Nascimento"
             required
+            name="dataNascimento"
             value={form.dataNascimento}
             onChange={handleChange}
              />
 
-            <label className="mb-2" htmlFor="">
+            <label className="mb-2" htmlFor="genero">
               Gênero:
             </label>
             <input className="p-2 my-4 border rounded-md w-full"
              type="text"
              placeholder="Gênero do Paciente"
              required
+             name="genero"
              value={form.genero}
-                onChange={handleChange}
+             onChange={handleChange}
              />
 
-            <label className="mb-2" htmlFor="">
+            <label className="mb-2" htmlFor="endereco">
               Endereço:
             </label>
             <input className="p-2 mb-4 border rounded-md w-full" 
             type="text" 
             placeholder="Endereço"
             required
+            name="endereco"
             value={form.endereco}
             onChange={handleChange}/>
 
-            <label className="mb-2" htmlFor="">
+            <label className="mb-2" htmlFor="email">
               Email:
             </label>
             <input className="p-2 my-4 border rounded-md w-full" 
             type="email"
             placeholder="E-mail para contato"
             required
+            name="email"
             value={form.email}
             onChange={handleChange} />
 
-            <label className="mb-2" htmlFor="">
+            <label className="mb-2" htmlFor="especialidade">
               Profissional que deseja consultar:
             </label>
             <input className="p-2 my-4 border rounded-md w-full" 
             type="text" 
             placeholder="Ex: Cardiologista"
             required
+            name="especialidade"
             value={form.especialidade}
             onChange={handleChange}/>
 
