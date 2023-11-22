@@ -16,7 +16,7 @@ export default function Cadastro() {
         email,
         senha,
       };
-      const resposta = await fetch("http://localhost:8080/usuario", {
+      const resposta = await fetch("", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -34,8 +34,8 @@ export default function Cadastro() {
 
   return (
     <section className="flex justify-center items-center h-screen">
-      <div className=" max-w-md mx-auto p-8 bg-gray-400 rounded-lg shadow-md">
-        <form onSubmit={handleCadastro} className="flex flex-col">
+      <div className="mx-auto p-8 bg-gray-400 rounded-lg shadow-md">
+        <form onSubmit={handleCadastro} className="w-96 flex flex-col">
           <fieldset className="m-0 p-0 border-none">
             <legend className="text-lg font-bold mb-4">Cadastro</legend>
             <div>
