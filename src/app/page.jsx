@@ -1,7 +1,16 @@
+"use client";
 import React from "react";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/usuario/login";
+    }
+  }, []);
+
   return (
     <main className="px-4 py-8 mx-auto max-w-6xl">
     <section className="mb-8">

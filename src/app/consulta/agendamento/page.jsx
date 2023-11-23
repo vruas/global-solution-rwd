@@ -1,8 +1,17 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function FormConsulta() {
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/usuario/login";
+    }
+  }, []);
+
+
   const [form, setForm] = useState({
     nomeCompleto: "",
     dataNasci: "",
@@ -13,13 +22,6 @@ export default function FormConsulta() {
   });
 
   const handleChange = (event) => {
-    let value = event.target.value;
-
-    // If the input is a date input, convert the value to SQL date format
-    if (event.target.name === "dataNasci") {
-      value = new Date(value).toISOString().slice(0, 10);
-    }
-
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -28,7 +30,7 @@ export default function FormConsulta() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await fetch(
         "http://localhost:8080/globalsolution/paciente",
@@ -40,14 +42,17 @@ export default function FormConsulta() {
           body: JSON.stringify(form),
         }
       );
-
+  
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      } else {
-        console.log("Consulta agendada com sucesso!");
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
       }
+  
+      const data = await response.json();
+  
+      console.log("Consulta agendada com sucesso!", data);
     } catch (error) {
-      console.error("Erro ao agendar consulta:", error);
+      console.error("Erro ao agendar consulta:", error.message);
     }
   };
 

@@ -3,6 +3,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 export default function Protocolo() {
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/usuario/login";
+    }
+  }, []);
+
   const [dados, setDados] = useState([]);
 
   useEffect(() => {

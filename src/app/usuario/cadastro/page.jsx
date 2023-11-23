@@ -3,34 +3,41 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function Cadastro() {
-    const [nome, setNome] = useState("");
-    const [cpf, setCpf] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-  
-    const handleCadastro = async (e) => {
-      e.preventDefault();
-      const novoUsuario = {
-        nome,
-        cpf,
-        email,
-        senha,
-      };
+  const [form, setForm] = useState({
+    nome: "",
+    cpf: "",
+    email: "",
+    senha: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleCadastro = async (e) => {
+    e.preventDefault();
+    try {
       const resposta = await fetch("http://localhost:8080/globalsolution/usuario", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(novoUsuario),
+        body: JSON.stringify(form),
       });
-      
-      if (resposta.ok) {
-        const dados = await resposta.json();
-        sessionStorage.setItem("usuario", JSON.stringify(dados));
-      } else {
-        console.error('Erro ao cadastrar usuário:', resposta.status, resposta.statusText);
+  
+      if (!resposta.ok) {
+        throw new Error(`Erro ao cadastrar usuário: ${resposta.status} ${resposta.statusText}`);
       }
+  
+      const dados = await resposta.json();
+      sessionStorage.setItem("token", dados.token);
+    } catch (error) {
+      console.error("Erro ao cadastrar usuário:", error.message);
     }
+  };
 
   return (
     <section className="flex justify-center items-center h-screen">
@@ -48,9 +55,8 @@ export default function Cadastro() {
                 name="nome"
                 id="idNome"
                 placeholder="Digite seu nome"
-                
                 required
-                onChange={(e) => setNome(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div>
@@ -64,7 +70,7 @@ export default function Cadastro() {
                 id="idCpf"
                 placeholder="Digite seu CPF"
                 required
-                onChange={(e) => setCpf(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="mb-4">
@@ -78,7 +84,7 @@ export default function Cadastro() {
                 id="idEmail"
                 placeholder="Digite seu e-mail"
                 required
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div>
@@ -92,7 +98,7 @@ export default function Cadastro() {
                 id="idSenha"
                 placeholder="Digite sua senha"
                 required
-                onChange={(e) => setSenha(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="flex flex-col items-center">
@@ -101,7 +107,7 @@ export default function Cadastro() {
               </button>
               <div className="flex flex-col items-center">
                 <p className="mb-2">Já possui cadastro?</p>
-                <Link href="/cadastro/login">
+                <Link href="/usuario/login">
                   <span className="text-red-500 hover:underline">
                     Clique aqui!
                   </span>

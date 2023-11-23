@@ -1,6 +1,16 @@
+"use client";
 import React from "react";
+import { useEffect } from "react";
+
 
 export default function Parceiros() {
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/usuario/login";
+    }
+  }, []);
+
   return (
     <main class="container mx-auto px-4 py-8">
   <section class="mb-8">
