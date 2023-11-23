@@ -16,7 +16,7 @@ export default function Cadastro() {
         email,
         senha,
       };
-      const resposta = await fetch("", {
+      const resposta = await fetch("http://localhost:8080/globalsolution/usuario", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
