@@ -5,7 +5,6 @@ export default function FormConsulta() {
 
     const [form, setForm] = useState({
         nome: "",
-        sobrenome: "",
         dataNascimento: "",
         genero: "",
         endereco: "",
