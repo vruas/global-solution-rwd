@@ -1,29 +1,35 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function Cabecalho () {
-    return (
-        <header className="bg-gray-600 flex justify-between items-center h-32">
-            <div className="flex items-center">
-                <div>
-                     // Imagem cabecalho
-                </div>
+export default function Cabecalho() {
+  return (
+    <header className="cabecalho">
+      <div className="flex items-center ml-12">
+        <div>
+          <Image src="/img/logo.png" alt="Logo" width={120} height={120} />
+        </div>
+        <Link href="/usuario/login">
+          <button className="btn-login-cabecalho">
+            Entrar
+          </button>
+        </Link>
+      </div>
 
-                <Link href="/usuario/login">
-                <button className="bg-red-500 text-white py-3 px-6 rounded-md mt-6 mb-2 hover:bg-red-600 transition duration-500 ease-out">
-                    Entrar
-                    </button>
-                </Link>
-               
-            </div>
-
-            <nav className="flex flex-row justify-around">
-                <Link className="link-cabecalho" href="/">Nosso Projeto</Link>
-                <Link className="link-cabecalho" href="/consulta/agendamento">Agende uma Consulta</Link>
-                <Link className="link-cabecalho" href="/parceiros">Empresa Parceira</Link>
-                <Link className="link-cabecalho" href="/consulta/resultado">Ver Agendamentos</Link>
-            </nav>
-            
-        </header>
-    )
+      <nav className="nav-cabecalho">
+        <Link className="link-cabecalho" href="/">
+          Nosso Projeto
+        </Link>
+        <Link className="link-cabecalho" href="/consulta/agendamento">
+          Agende uma Consulta
+        </Link>
+        <Link className="link-cabecalho" href="/parceiros">
+          Empresa Parceira
+        </Link>
+        <Link className="link-cabecalho" href="/consulta/resultado">
+          Ver Agendamentos
+        </Link>
+      </nav>
+    </header>
+  );
 }
