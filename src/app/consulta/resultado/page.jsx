@@ -15,7 +15,7 @@ export default function Protocolo() {
 
   useEffect(() => {
     const fetchDados = async () => {
-      const resposta = await fetch("");
+      const resposta = await fetch("http://localhost:8080/globalsolution/consulta");
       const dados = await resposta.json();
       setDados(dados);
     };

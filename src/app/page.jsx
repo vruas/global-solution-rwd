@@ -16,7 +16,7 @@ export default function Home() {
     <main className="px-4 py-8 mx-auto max-w-6xl">
       <section className="mb-8">
         <h1 className="text-3xl font-bold mb-4">
-          Seja bem-vindo ao <span className="text-red-500"></span>
+          Seja bem-vindo ao <span className="text-red-500">Health Hub AI</span>
           <br /> nosso projeto com a{" "}
           <Link href="/parceiros">
             <span className="text-red-500 hover:text-red-800 transition-all ease-out">
@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h3 className="text-2xl font-bold mb-4">Nosso Projeto:</h3>
+        <h3 className="text-2xl font-bold mb-4">Nosso Projeto</h3>
         <p className="text-lg">
           Nosso projeto tem como objetivo implementar a Inteligência Artificial
           na área da saúde para simplificar as operações hospitalares. Isso

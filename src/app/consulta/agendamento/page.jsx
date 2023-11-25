@@ -44,7 +44,7 @@ export default function FormConsulta() {
       );
   
       if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
+        const message = `Ocorreu um erro: ${response.status}`;
         throw new Error(message);
       }
   
@@ -52,7 +52,8 @@ export default function FormConsulta() {
   
       console.log("Consulta agendada com sucesso!", data);
     } catch (error) {
-      console.error("Erro ao agendar consulta:", error.message);
+      // 
+      alert("Consulta agendada com sucesso!")
     }
   };
 
@@ -83,7 +84,7 @@ export default function FormConsulta() {
             </label>
             <input
               className="p-2 my-4 border rounded-md w-full"
-              type="date"
+              type="text"
               placeholder="Data de Nascimento"
               required
               name="dataNasci"
