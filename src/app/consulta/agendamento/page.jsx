@@ -52,8 +52,7 @@ export default function FormConsulta() {
   
       console.log("Consulta agendada com sucesso!", data);
     } catch (error) {
-      // 
-      alert("Consulta agendada com sucesso!")
+      console.error("Erro ao agendar consulta:", error.message);
     }
   };
 

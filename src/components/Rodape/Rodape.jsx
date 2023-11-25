@@ -21,7 +21,7 @@ export default function Rodape() {
               <Link className="link-rodape" href="/">Nosso Projeto</Link>
             </li>
             <li>
-              <Link className="link-rodape" href="/consulta">Agende uma consulta</Link>
+              <Link className="link-rodape" href="/consulta/agendamento">Agende uma consulta</Link>
             </li>
             <li>
               <Link className="link-rodape" href="/parceiros">Empresa Parceira</Link>
