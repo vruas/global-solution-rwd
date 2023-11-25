@@ -2,3 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 100vh;
+  }
+
+  body {
+    background-color: rgb(214, 208, 208);
+  }
+}
+
+@layer components {
+
+  .cabecalho {
+    @apply bg-gray-600 flex justify-between items-center h-32
+  }
+
+  .btn-login-cabecalho {
+    @apply bg-red-500 text-white py-3 px-6 rounded-md   ml-12 hover:bg-red-600 transition duration-500 ease-out;
+  }
+
+  .nav-cabecalho {
+    @apply flex flex-row justify-around
+  }
+  .link-cabecalho {
+    @apply text-red-500 flex justify-end mx-8 p-2 transition-all duration-500 ease-out hover:bg-red-500 hover:text-white rounded font-bold uppercase;
+  }
+
+  .rodape {
+    @apply bg-gray-600 text-black font-bold py-2 flex flex-col justify-center items-center w-full bottom-0
+  }
+
+  .link-rodape {
+    @apply text-gray-200 flex justify-center mx-8 p-2 transition-all duration-500 ease-out  hover:text-red-500;
+  }
+
+  .div-integrantes {
+    @apply flex flex-col justify-around  items-center mt-8
+  }
+
+  .lista-integrantes {
+    @apply flex justify-center gap-12 text-center text-sm text-gray-200
+  }
+
+  .nome-integrante {
+    @apply text-red-500 font-bold;
+  }
+}
